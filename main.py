@@ -63,8 +63,6 @@ def start():
         
     # this validates who wins, looses or if there is a draw
     def validate():
-        print("validating")
-        print(user_choice, computer_choice)
         # if the user's choice is the same as the computer's choice
         if user_choice == "R" and computer_choice == "R" or user_choice == "P" and computer_choice == "P" or user_choice == "S" and computer_choice == "S":
             print("Draw!!!")
