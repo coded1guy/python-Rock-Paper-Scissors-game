@@ -18,14 +18,14 @@ then the winner is chosen.
 Have fun with it :)
 -------------------
 """
+options = ["R", "P", "S"]
+user_choice = None
+computer_choice = None
 
 def new_game():
     print(instructions)
     start()
 
-options = ["R", "P", "S"]
-user_choice = None
-computer_choice = None
 # shows computer choice
 def show_computer_choice():
     computer_choice = random.choice(options)
@@ -37,6 +37,7 @@ def show_computer_choice():
     else:
         print("Computer chose Scissors!")
 
+# this function 
 def start():
     user_choice = input("pick an option between \"R\", \"P\" or \"S\": ").upper()
     # show the user what they chose
@@ -54,7 +55,7 @@ def start():
         validate()
     else:
         print("invalid choice, you are to chose an option between \"R\", \"P\" or \"S\".")
-
+# this validates who wins, looses or if there is a draw
 def validate():
     # if the user's choice is the same as the computer's choice
     if user_choice == "R" and computer_choice == "R" or user_choice == "P" and computer_choice == "P" or user_choice == "S" and computer_choice == "S":
@@ -91,7 +92,7 @@ def win():
         start()
     elif to_play_again.lower() == "n" or to_play_again.lower() == "no":
         print("The game ended in a win")
-
+# this runs when a user losses a game
 def loss():
     print("Computer Wins!!!")
     print("sorry, you lost this round")
