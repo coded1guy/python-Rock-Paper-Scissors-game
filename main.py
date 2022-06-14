@@ -27,14 +27,14 @@ def show_computer_choice():
     computer_choice = random.choice(options)
     # show the user what the computer chose
     if computer_choice == "R":
-        print("Computer chose Rock!")
-        return computer_choice
+         cpu_value = "Rock"
+        return computer_choice, cpu_value
     elif computer_choice == "P":
-        print("Computer chose Paper!")
-        return computer_choice
+        cpu_value = "Paper"
+        return computer_choice, cpu_value
     else:
-        print("Computer chose Scissors!")
-        return computer_choice
+        cpu_value = "Scissors"
+        return computer_choice, cpu_value
 
 def new_game():
     print(instructions)
@@ -50,27 +50,23 @@ def start():
         if to_play_again.lower() == "y" or to_play_again.lower() == "yes":
             start()
         elif to_play_again.lower() == "n" or to_play_again.lower() == "no":
-            print("The game ended in a win")
+            print("end game")
     # this runs when a user losses a game
     def loss():
-        print("Computer Wins!!!")
+        print("CPU Wins!!!")
         print("sorry, you lost this round")
         to_play_again = input("do you want to play again (y/n): ")
         if to_play_again.lower() == "y" or to_play_again.lower() == "yes":
             start()
         elif to_play_again.lower() == "n" or to_play_again.lower() == "no":
-            print("The game ended in a loss")
+            print("end game")
         
     # this validates who wins, looses or if there is a draw
     def validate():
         # if the user's choice is the same as the computer's choice
         if user_choice == "R" and computer_choice == "R" or user_choice == "P" and computer_choice == "P" or user_choice == "S" and computer_choice == "S":
-            print("Draw!!!")
-            to_start_again = input("do you want to start again (y/n): ")
-            if to_start_again == "y" or to_start_again == "yes":
-                start()
-            else:
-                print("The game ended in a draw")
+            print("it's a tie!!!")
+            start()
         # if the user chooses Rock and the computer chooses Paper
         elif user_choice == "R" and computer_choice == "P":
             loss()    
@@ -94,19 +90,20 @@ def start():
     user_choice = input("pick an option between \"R\", \"P\" or \"S\": ").upper()
     # show the user what they chose
     if user_choice == "R":
-        print("You chose Rock!")
-        computer_choice = show_computer_choice()
+        computer_choice, cpu_value = show_computer_choice()
+        print(f"You (Rock) : CPU ({cpu_value})")
         validate()
     elif user_choice == "P":
-        print("You chose Paper!")
-        computer_choice = show_computer_choice()
+        computer_choice, cpu_value = show_computer_choice()
+        print(f"You (Paper) : CPU ({cpu_value})")
         validate()
     elif user_choice == "S":
-        print("You chose Scissors!")
-        computer_choice = show_computer_choice()
+        computer_choice, cpu_value = show_computer_choice()
+        print(f"You (Scissors) : CPU ({cpu_value})")
         validate()
     else:
         print("invalid choice, you are to chose an option between \"R\", \"P\" or \"S\".")
+        start()
 
 # this starts the game
 new_game()
