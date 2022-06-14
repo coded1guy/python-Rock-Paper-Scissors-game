@@ -27,7 +27,7 @@ def show_computer_choice():
     computer_choice = random.choice(options)
     # show the user what the computer chose
     if computer_choice == "R":
-         cpu_value = "Rock"
+        cpu_value = "Rock"
         return computer_choice, cpu_value
     elif computer_choice == "P":
         cpu_value = "Paper"
